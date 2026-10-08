@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ezechias ANATO | Portfolio</title>
+    <!-- Importation de polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Icones via FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Variables de couleurs */
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px 10%;
+            background: rgba(15, 23, 42, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        .cta-button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+        }
+
+        /* --- Sections communes --- */
+        section {
+            padding: 100px 10%;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        h2.section-title span {
+            color: var(--primary);
+        }
+
+        /* --- Projets (Fictifs) --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: #334155; /* Image placeholder color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #64748b;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: #334155;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-right: 5px;
+        }
+
+        /* --- Contact --- */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-light);
+            border: 1px solid var(--primary);
+            transition: 0.3s;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .contact-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-item:hover i {
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de Navigation -->
+    <nav>
+        <div class="logo">E. ANATO</div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Accueil Section -->
+    <section class="hero" id="accueil">
+        <h1>Ézéchias <span>ANATO</span></h1>
+        <p>Développeur Web & Mobile | UI/UX Designer</p>
+        <p style="margin-top: 10px; font-weight: 300;">Création d'interfaces élégantes et de solutions techniques robustes pour donner vie à vos projets.</p>
+        <a href="#projets" class="cta-button">Découvrir mon travail</a>
+    </section>
+
+    <!-- Projets Section -->
+    <section id="projets">
+        <h2 class="section-title">Mes <span>Réalisations</span></h2>
+        <div class="project-grid">
+            
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-mobile-alt fa-3x"></i></div>
+                <div class="project-info">
+                    <span class="tag">Mobile App</span>
+                    <h3>SantéPlus</h3>
+                    <p>Une application mobile permettant de prendre rendez-vous avec des médecins à Cotonou.</p>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-palette fa-3x"></i></div>
+                <div class="project-info">
+                    <span class="tag">Design</span>
+                    <h3>NeoBrand Identity</h3>
+                    <p>Charte graphique complète et logo pour une startup spécialisée dans la Fintech.</p>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-card">
+                <div class="project-img"><i class="fas fa-laptop-code fa-3x"></i></div>
+                <div class="project-info">
+                    <span class="tag">E-commerce</span>
+                    <h3>Bénin Marché</h3>
+                    <p>Conception d'une boutique en ligne moderne et rapide avec système de paiement intégré.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Me <span>Contacter</span></h2>
+        <div class="contact-container">
+            <p>Un projet en tête ? Contactez-moi dès maintenant pour en discuter !</p>
+            <div class="contact-links">
+                <a href="https://wa.me/2290147664976" class="contact-item" target="_blank">
+                    <i class="fab fa-whatsapp"></i> +229 01 47 66 49 76
+                </a>
+                <a href="mailto:Ezechiasanato@gmail.com" class="contact-item">
+                    <i class="far fa-envelope"></i> Ezechiasanato@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 - Ézéchias ANATO. Conçu avec passion.</p>
+    </footer>
+
+</body>
+</html>
